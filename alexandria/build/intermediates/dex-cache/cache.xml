@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-d362c07e2624d618a7598477025875874f37c0a4.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-f3e48a4ade4f80843b6d5ec1f3d46123beef866f.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/pre-dexed/debug/classes-f2f018dd1da70c4963ccf03c09ae6dfed8dc8f07.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-b41477f8e386018c5123f323b98b17986511c136.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/jacoco/jacocoagent.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="05d4f9e6f36f58a60dc65a4b1af30ee76201a530">
+        <dex dex="/Users/sburns/AndroidUdacity/alexandria/app/build/intermediates/pre-dexed/debug/jacocoagent-2a1f90a3a7d25290e82b10b94313ab628982abec.jar" />
+    </item>
+
+</items>
