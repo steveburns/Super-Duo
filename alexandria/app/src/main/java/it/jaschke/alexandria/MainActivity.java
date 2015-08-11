@@ -20,7 +20,12 @@ import android.widget.Toast;
 import it.jaschke.alexandria.api.Callback;
 
 
-public class MainActivity extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks, Callback {
+public class MainActivity extends ActionBarActivity
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+        Callback,
+        AddBook.AddBookCallbacks,
+        ScannerFragment.ScannerFragmentCallbacks
+{
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -82,6 +87,33 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
 
         fragmentManager.beginTransaction()
                 .replace(R.id.container, nextFragment)
+                .addToBackStack((String) title)
+                .commit();
+    }
+
+    @Override
+    public void onScanButtonClicked() {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = new ScannerFragment();
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack((String) title)
+                .commit();
+    }
+
+    @Override
+    public void onScanResultHandler(String code) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = new AddBook();
+        Bundle args = new Bundle();
+        args.putString(AddBook.EAN_CONTENT, code);
+        fragment.setArguments(args);
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, fragment)
                 .addToBackStack((String) title)
                 .commit();
     }
@@ -148,7 +180,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
                 .replace(id, fragment)
                 .addToBackStack("Book Detail")
                 .commit();
-
     }
 
     private class MessageReciever extends BroadcastReceiver {
