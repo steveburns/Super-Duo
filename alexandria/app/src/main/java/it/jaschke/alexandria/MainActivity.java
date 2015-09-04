@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity
 {
     private static String TAG = MainActivity.class.getSimpleName();
 
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */

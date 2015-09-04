@@ -24,6 +24,7 @@ public class ListOfBooks extends Fragment implements LoaderManager.LoaderCallbac
 
     private static String TAG = ListOfBooks.class.getSimpleName();
 
+
     private BookListAdapter bookListAdapter;
     private ListView bookList;
     private int position = ListView.INVALID_POSITION;

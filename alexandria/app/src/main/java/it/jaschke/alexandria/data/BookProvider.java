@@ -18,6 +18,7 @@ public class BookProvider extends ContentProvider {
 
     private final String TAG = BookProvider.class.getSimpleName();
 
+
     private static final int BOOK_ID = 100;
     private static final int BOOK = 101;
 
