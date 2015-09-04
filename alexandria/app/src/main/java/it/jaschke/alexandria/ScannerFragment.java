@@ -64,7 +64,7 @@ public class ScannerFragment extends Fragment implements ZXingScannerView.Result
     }
 
     @Override
-    public void onPause() {0764
+    public void onPause() {
         super.onPause();
         mScannerView.stopCamera();
     }

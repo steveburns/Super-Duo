@@ -12,6 +12,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,12 @@ import android.widget.Toast;
 
 import it.jaschke.alexandria.api.Callback;
 
+/*
+BUGS:
+1. Booklist does not refresh when the last book is deleted.
+2. Activity title is not always updated to match the fragment when the back button is pressed
+3.
+* */
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
@@ -26,6 +33,7 @@ public class MainActivity extends ActionBarActivity
         AddBook.AddBookCallbacks,
         ScannerFragment.ScannerFragmentCallbacks
 {
+    private static String TAG = MainActivity.class.getSimpleName();
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -37,7 +45,7 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence title;
     public static boolean IS_TABLET = false;
-    private BroadcastReceiver messageReciever;
+    private BroadcastReceiver messageReceiver;
 
     public static final String MESSAGE_EVENT = "MESSAGE_EVENT";
     public static final String MESSAGE_KEY = "MESSAGE_EXTRA";
@@ -52,9 +60,9 @@ public class MainActivity extends ActionBarActivity
             setContentView(R.layout.activity_main);
         }
 
-        messageReciever = new MessageReciever();
+        messageReceiver = new MessageReceiver();
         IntentFilter filter = new IntentFilter(MESSAGE_EVENT);
-        LocalBroadcastManager.getInstance(this).registerReceiver(messageReciever,filter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver,filter);
 
         navigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -84,6 +92,8 @@ public class MainActivity extends ActionBarActivity
                 break;
 
         }
+
+        Log.d(TAG, String.format("onNavigationDrawerItemSelected, position = %d", position));
 
         fragmentManager.beginTransaction()
                 .replace(R.id.container, nextFragment)
@@ -160,7 +170,7 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     protected void onDestroy() {
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(messageReciever);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(messageReceiver);
         super.onDestroy();
     }
 
@@ -182,7 +192,7 @@ public class MainActivity extends ActionBarActivity
                 .commit();
     }
 
-    private class MessageReciever extends BroadcastReceiver {
+    private class MessageReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(intent.getStringExtra(MESSAGE_KEY)!=null){

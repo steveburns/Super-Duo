@@ -8,12 +8,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.util.Log;
 
 /**
  * Created by saj on 24/12/14.
  */
 public class BookProvider extends ContentProvider {
+
+    private final String TAG = BookProvider.class.getSimpleName();
 
     private static final int BOOK_ID = 100;
     private static final int BOOK = 101;
@@ -270,8 +273,12 @@ public class BookProvider extends ContentProvider {
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
+
+        Log.d(TAG, "Book deleted");
+
         // Because a null deletes all rows
         if (selection == null || rowsDeleted != 0) {
+            Log.d(TAG, "going to call notifyChange");
             getContext().getContentResolver().notifyChange(uri, null);
         }
         return rowsDeleted;
