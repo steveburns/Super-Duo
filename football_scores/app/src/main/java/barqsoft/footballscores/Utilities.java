@@ -16,10 +16,10 @@ public class Utilities
     {
         switch (league_num)
         {
-            case SERIE_A : return context.getString(R.string.seria_a);
-            case PREMIER_LEGAUE : return context.getString(R.string.premier_league);
-            case CHAMPIONS_LEAGUE : return context.getString(R.string.UEFA_Champions_League);
-            case PRIMERA_DIVISION : return context.getString(R.string.primera_division);
+            case SERIE_A : return context.getString(R.string.seriaa);
+            case PREMIER_LEGAUE : return context.getString(R.string.premierleague);
+            case CHAMPIONS_LEAGUE : return context.getString(R.string.champions_league);
+            case PRIMERA_DIVISION : return context.getString(R.string.primeradivison);
             case BUNDESLIGA : return context.getString(R.string.bundesliga);
             default: return context.getString(R.string.unknown_league);
         }
