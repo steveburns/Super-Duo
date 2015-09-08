@@ -38,4 +38,6 @@
     <string name="api_token" translatable="false">278b01c809d74dd898fab2a7de76abe4</string>
     <string name="unknown_league">Not known League Please report</string>
     <string name="group_stages">Group Stages, Matchday : 6</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

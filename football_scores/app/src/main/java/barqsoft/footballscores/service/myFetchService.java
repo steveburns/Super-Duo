@@ -47,6 +47,8 @@ public class myFetchService extends IntentService
 
     private void getData (String timeFrame)
     {
+//        Log.d(LOG_TAG, "getting the football data");
+
         //Creating fetch URL
         final String BASE_URL = "http://api.football-data.org/alpha/fixtures"; //Base URL
         final String QUERY_TIME_FRAME = "timeFrame"; //Time Frame parameter to determine days
@@ -134,6 +136,8 @@ public class myFetchService extends IntentService
     }
     private void processJSONdata (String JSONdata,Context mContext, boolean isReal)
     {
+//        Log.d(LOG_TAG, "processing the football data");
+
         //JSON data
         final String SERIE_A = "357";
         final String PREMIER_LEGAUE = "354";
@@ -169,6 +173,7 @@ public class myFetchService extends IntentService
         try {
             JSONArray matches = new JSONObject(JSONdata).getJSONArray(FIXTURES);
 
+//            Log.d(LOG_TAG, String.format("number of matches: %d", matches.length()));
 
             //ContentValues to be inserted
             Vector<ContentValues> values = new Vector <ContentValues> (matches.length());
@@ -234,24 +239,26 @@ public class myFetchService extends IntentService
                     match_values.put(DatabaseContract.scores_table.MATCH_DAY,match_day);
                     //log spam
 
-                    //Log.v(LOG_TAG,match_id);
-                    //Log.v(LOG_TAG,mDate);
-                    //Log.v(LOG_TAG,mTime);
-                    //Log.v(LOG_TAG,Home);
-                    //Log.v(LOG_TAG,Away);
-                    //Log.v(LOG_TAG,Home_goals);
-                    //Log.v(LOG_TAG,Away_goals);
+/*
+                    Log.v(LOG_TAG,match_id);
+                    Log.v(LOG_TAG,mDate);
+                    Log.v(LOG_TAG,mTime);
+                    Log.v(LOG_TAG,Home);
+                    Log.v(LOG_TAG,Away);
+                    Log.v(LOG_TAG,Home_goals);
+                    Log.v(LOG_TAG,Away_goals);
+*/
 
                     values.add(match_values);
                 }
             }
-            int inserted_data = 0;
+
             ContentValues[] insert_data = new ContentValues[values.size()];
             values.toArray(insert_data);
-            inserted_data = mContext.getContentResolver().bulkInsert(
+            int inserted_data = mContext.getContentResolver().bulkInsert(
                     DatabaseContract.BASE_CONTENT_URI,insert_data);
 
-            //Log.v(LOG_TAG,"Succesfully Inserted : " + String.valueOf(inserted_data));
+            Log.v(LOG_TAG,"Successfully Inserted : " + String.valueOf(inserted_data));
         }
         catch (JSONException e)
         {
