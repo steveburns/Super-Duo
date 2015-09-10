@@ -85,8 +85,10 @@ public class ListOfBooks extends Fragment implements LoaderManager.LoaderCallbac
 
     @Override
     public void onResume() {
-        super.onResume();
         Log.d(TAG, "In onResume");
+        super.onResume();
+        // fixes bug where title is not set properly when user pushes "back"
+        getActivity().setTitle(R.string.books);
     }
 
     private void restartLoader(){
@@ -139,6 +141,6 @@ public class ListOfBooks extends Fragment implements LoaderManager.LoaderCallbac
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        activity.setTitle(R.string.books);
+        Log.d(TAG, "in onAttach");
     }
 }

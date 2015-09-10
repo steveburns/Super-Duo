@@ -192,6 +192,13 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        // fixes bug where title is not set properly when user pushes "back"
+        getActivity().setTitle(R.string.scan);
+    }
+
+    @Override
     public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
 
     }

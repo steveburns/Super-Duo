@@ -61,6 +61,7 @@ public class MainActivity extends ActionBarActivity
             setContentView(R.layout.activity_main);
         }
 
+
         messageReceiver = new MessageReceiver();
         IntentFilter filter = new IntentFilter(MESSAGE_EVENT);
         LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver,filter);
@@ -129,11 +130,16 @@ public class MainActivity extends ActionBarActivity
                 .commit();
     }
 
+    @Override
     public void setTitle(int titleId) {
+        Log.d(TAG, "In setTitle");
         title = getString(titleId);
+        // if user presses "back" this will restore the title correctly (was a bug).
+        restoreActionBar();
     }
 
     public void restoreActionBar() {
+        Log.d(TAG, "In restoreActionBar");
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
