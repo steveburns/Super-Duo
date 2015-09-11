@@ -65,6 +65,7 @@ public class myFetchService extends IntentService
             URL fetch = new URL(fetch_build.toString());
             m_connection = (HttpURLConnection) fetch.openConnection();
             m_connection.setRequestMethod("GET");
+            // TODO: reviewer, please update the value in R.string.api_token with api token obtained from http://api.football-data.org
             m_connection.addRequestProperty("X-Auth-Token", this.getString(R.string.api_token));
             m_connection.connect();
 
