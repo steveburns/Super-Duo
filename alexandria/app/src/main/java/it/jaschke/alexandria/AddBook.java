@@ -127,7 +127,9 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
             code="978"+code;
         }
         if(code.length()<13){
-            clearFields();
+            // Do not clear the fields. That way the user sees the book information for the last
+            //   valid code entered.
+        //    clearFields();
             return;
         }
         //Once we have an ISBN, start a book intent
@@ -175,9 +177,15 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         ((TextView) rootView.findViewById(R.id.bookSubTitle)).setText(bookSubTitle);
 
         String authors = data.getString(data.getColumnIndex(AlexandriaContract.AuthorEntry.AUTHOR));
-        String[] authorsArr = authors.split(",");
-        ((TextView) rootView.findViewById(R.id.authors)).setLines(authorsArr.length);
-        ((TextView) rootView.findViewById(R.id.authors)).setText(authors.replace(",","\n"));
+        if (authors != null) {
+            String[] authorsArr = authors.split(",");
+            ((TextView) rootView.findViewById(R.id.authors)).setLines(authorsArr.length);
+            ((TextView) rootView.findViewById(R.id.authors)).setText(authors.replace(",", "\n"));
+        } else {
+            // No authors for this book - clear the field.
+            // The New Living Translation of the Holy Bible is a good test ISBN to use (0842384896)
+            ((TextView) rootView.findViewById(R.id.authors)).setText("");
+        }
         String imgUrl = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.IMAGE_URL));
         if(Patterns.WEB_URL.matcher(imgUrl).matches()){
             new DownloadImage((ImageView) rootView.findViewById(R.id.bookCover)).execute(imgUrl);
@@ -204,6 +212,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     }
 
     private void clearFields(){
+        Log.d(TAG, "In clearFields");
         ((TextView) rootView.findViewById(R.id.bookTitle)).setText("");
         ((TextView) rootView.findViewById(R.id.bookSubTitle)).setText("");
         ((TextView) rootView.findViewById(R.id.authors)).setText("");

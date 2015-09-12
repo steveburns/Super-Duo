@@ -54,6 +54,9 @@ public class MainActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.d(TAG, "In OnCreate");
+
         IS_TABLET = isTablet();
         if(IS_TABLET){
             setContentView(R.layout.activity_main_tablet);
@@ -141,9 +144,11 @@ public class MainActivity extends ActionBarActivity
     public void restoreActionBar() {
         Log.d(TAG, "In restoreActionBar");
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(title);
+        if (actionBar != null) {
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setTitle(title);
+        }
     }
 
 

@@ -101,7 +101,6 @@ public class BookService extends IntentService {
             final String FORECAST_BASE_URL = "https://www.googleapis.com/books/v1/volumes?";
             final String QUERY_PARAM = "q";
 
-//            final String ISBN_PARAM = "isbn:" + ean;
             final String ISBN_PARAM = "isbn:" + ean;
 
             Log.d(LOG_TAG, "Starting: " + FORECAST_BASE_URL);
@@ -233,7 +232,6 @@ public class BookService extends IntentService {
             values.put(AlexandriaContract.AuthorEntry._ID, ean);
             values.put(AlexandriaContract.AuthorEntry.AUTHOR, jsonArray.getString(i));
             getContentResolver().insert(AlexandriaContract.AuthorEntry.CONTENT_URI, values);
-            values= new ContentValues();
         }
     }
 
@@ -243,7 +241,6 @@ public class BookService extends IntentService {
             values.put(AlexandriaContract.CategoryEntry._ID, ean);
             values.put(AlexandriaContract.CategoryEntry.CATEGORY, jsonArray.getString(i));
             getContentResolver().insert(AlexandriaContract.CategoryEntry.CONTENT_URI, values);
-            values= new ContentValues();
         }
     }
  }

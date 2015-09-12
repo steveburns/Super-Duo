@@ -2,25 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/e019d15a13a9786f881141d2df6654b8510bce8b/core-3.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-b3961b6b466aed00c866324d2dfaaf5897a9b4d5.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/jacoco/jacocoagent.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="05d4f9e6f36f58a60dc65a4b1af30ee76201a530">
-        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/jacocoagent-58faaa9c30f9dd6f32bda8d3b1c05233bf85ebb0.jar" />
-    </item>
-    <item
-        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.8.1/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="344d7d7a7dc1945c596bbcdcd35428c3709b118f">
-        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/classes-977c7de4c899eacd12e393ab9f418c0c4eead99c.jar" />
+        sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
+        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/core-3.2.0-10ea68c84d9097776c8f34ea959cddc418a09396.jar" />
     </item>
     <item
         jar="/Users/sburns/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
@@ -37,11 +23,11 @@
         <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/classes-07fa13db762b2e7983f91bd9a366d116e228fd71.jar" />
     </item>
     <item
-        jar="/Users/sburns/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/e019d15a13a9786f881141d2df6654b8510bce8b/core-3.2.0.jar"
+        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
-        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/core-3.2.0-10ea68c84d9097776c8f34ea959cddc418a09396.jar" />
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/classes-19db4594990872b51dc14e2774d891f135909489.jar" />
     </item>
     <item
         jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
@@ -51,11 +37,25 @@
         <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/classes-7280d9af360f1b9141f92f5060a138fdef5fe02f.jar" />
     </item>
     <item
-        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/jacoco/jacocoagent.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/classes-19db4594990872b51dc14e2774d891f135909489.jar" />
+        sha1="05d4f9e6f36f58a60dc65a4b1af30ee76201a530">
+        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/jacocoagent-58faaa9c30f9dd6f32bda8d3b1c05233bf85ebb0.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-b3961b6b466aed00c866324d2dfaaf5897a9b4d5.jar" />
+    </item>
+    <item
+        jar="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/exploded-aar/me.dm7.barcodescanner/zxing/1.8.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="344d7d7a7dc1945c596bbcdcd35428c3709b118f">
+        <dex dex="/Users/sburns/AndroidUdacity/SuperDuo/alexandria/app/build/intermediates/pre-dexed/debug/classes-977c7de4c899eacd12e393ab9f418c0c4eead99c.jar" />
     </item>
 
 </items>
