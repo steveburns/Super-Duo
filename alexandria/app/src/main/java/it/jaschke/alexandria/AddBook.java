@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import it.jaschke.alexandria.data.AlexandriaContract;
@@ -27,7 +26,7 @@ import it.jaschke.alexandria.services.DownloadImage;
 
 
 public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    private static final String TAG = "INTENT_TO_SCAN_ACTIVITY";
+    private static final String TAG = AddBook.class.getSimpleName();
     private EditText ean;
     private final int LOADER_ID = 1;
     private View rootView;
@@ -50,6 +49,9 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         if(ean!=null) {
             outState.putString(EAN_CONTENT, ean.getText().toString());
         }
+        // clear fields because we will requery on rotation.
+        // fixes bug where title is left on the screen when a bad ean is in the edit field.
+        clearFields();
     }
 
     @Override
@@ -97,18 +99,20 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         rootView.findViewById(R.id.save_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ean.setText("");
+                clearFields();
             }
         });
 
         rootView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bookIntent = new Intent(getActivity(), BookService.class);
-                bookIntent.putExtra(BookService.EAN, ean.getText().toString());
-                bookIntent.setAction(BookService.DELETE_BOOK);
-                getActivity().startService(bookIntent);
-                ean.setText("");
+                if (ean.getText().length() > 0) {
+                    Intent bookIntent = new Intent(getActivity(), BookService.class);
+                    bookIntent.putExtra(BookService.EAN, ean.getText().toString());
+                    bookIntent.setAction(BookService.DELETE_BOOK);
+                    getActivity().startService(bookIntent);
+                }
+                clearFields();
             }
         });
 
@@ -132,8 +136,9 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
         //    clearFields();
             return;
         }
+
         //Once we have an ISBN, start a book intent
-        Log.d(TAG, "Starting BookService Intent");
+        Log.d(TAG, "In lookupBook - Starting BookService Intent");
         Intent bookIntent = new Intent(getActivity(), BookService.class);
         bookIntent.putExtra(BookService.EAN, code);
         bookIntent.setAction(BookService.FETCH_BOOK);
@@ -166,6 +171,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
 
     @Override
     public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor data) {
+        Log.d(TAG, "In onLoadFinished");
         if (!data.moveToFirst()) {
             return;
         }
